@@ -11,39 +11,12 @@ app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use('/findStudent', require('./getStudent.js'));
+app.use('/deleteStudent', require('delStudent.js'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
     res.render('home');
 });
-
-/*app.post('/findStudent', function (req, res, next) {
-    console.log("in post: " + req.body.FirstName);
-    var context = {};
-    var query1 = "select * from student where FirstName = ? AND LastName = ?";
-    var test = "select * from teacher";
-    var inserts = [req.body.FirstName, req.body.LastName]
-   
-    mysql.pool.query(query1, inserts, function (err, result) {
-        if (err) {
-            next(err);
-            return;
-        }
-        context.student = result;
-
-        res.render('findStudent', context);
-    });
-});*/
-
-
-app.get('/deleteStudent', function (req, res) {
-    var context = {};
-    context.fname = req.body.firstName;
-    context.lname = req.body.lastName;
-    res.render('deleteStudent', context);
-});
-
-
 
 
 app.use(function (req, res) {

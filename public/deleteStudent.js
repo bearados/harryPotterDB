@@ -10,7 +10,7 @@ function bindButtons() {
 function setVals() {
     var box1 = document.getElementById("fname");
     var box2 = document.getElementById("lname");
-
+/*
     box1.value = context.FirstName;
-    box2.value = context.FirstName;
+    box2.value = context.LastName;*/
 }
