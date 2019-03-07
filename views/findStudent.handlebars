@@ -9,12 +9,12 @@
 <body>
     <h1>Find a student page</h1>
     <h2>Please enter the first and last name of the student</h2>
-    <form>
+    <form id="search" action="/findStudent" method="post">
         First name:<br>
-        <input type="text" name="firstname" maxlength="100" id="fname">
+        <input type="text" name="firstname" maxlength="100">
         <br>
         Last name:<br>
-        <input type="text" name="lastname" maxlength="100" id="lname">
+        <input type="text" name="lastname" maxlength="100">
         <br><br>
         <input type="submit" value="Submit" id="stusub">
     </form>
@@ -42,6 +42,5 @@
             {{/each}}
         </tbody>
     </table>
-    <script src="/findStudent.js"></script>
 </body>
 </html>
