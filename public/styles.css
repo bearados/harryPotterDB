@@ -1,0 +1,74 @@
+/*.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}*/
+body, html {
+    height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: url("hogwarts1.png");
+
+  /* Set a specific height */
+  height: 20%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: #922B21;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font: italic 25px Georgia, serif;
+  color: #FFFFFF
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+input[type="submit"] {
+  background: #2874A6;
+  color: white;
+  border-style: outset;
+  border-color: #1F618D;
+  height: 50px;
+  width: 150px;
+  font: bold 15px arial, sans-serif;
+  text-shadow:none;
+}
+<hero-image src = hogwarts1.png>

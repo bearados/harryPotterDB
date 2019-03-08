@@ -1,23 +1,29 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
+<html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
     <meta charset="utf-8" />
-    <title></title>
 </head>
+
 <body>
-    <h1>Find a student page</h1>
-    <h2>Please enter the first and last name of the student</h2>
-    <form id="search" action="/findStudent" method="post">
-        First name:<br>
-        <input type="text" name="firstname" maxlength="100">
-        <br>
-        Last name:<br>
-        <input type="text" name="lastname" maxlength="100">
-        <br><br>
-        <input type="submit" value="Submit" id="stusub">
-    </form>
+    <center>
+        <h1>Find a student page</h1>
+        <h2>Please enter the first and last name of the student</h2>
+        <form id=search action="/findStudent" method="post">
+            First name:
+            <br>
+            <input type="text" name="firstname" maxlength="100">
+            <br> Last name:
+            <br>
+            <input type="text" name="lastname" maxlength="100">
+            <br>
+            <br>
+            <input type="submit" value="Submit" id="stusub">
+        </form>
+    </center>
     <table align="center">
         <thead>
             <tr>
@@ -28,8 +34,8 @@
                 <th>Familiar</th>
                 <th>Delete</th>
             </tr>
-            </thead>
-        <tbody id ="tbl" class="rows">
+        </thead>
+        <tbody id="tbl" class="rows">
             {{#each student}}
             <tr>
                 <td id="fn">{{FirstName}}</td>
@@ -37,10 +43,13 @@
                 <td>{{GradeLevel}}</td>
                 <td>{{House}}</td>
                 <td>{{familiar}}</td>
-                <td><a href="/deleteStudent/{{ID}}">Delete</a></td>
+                <td>
+                    <a href="/findStudent/{{ID}}">Delete</a>
+                </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
 </body>
+
 </html>
