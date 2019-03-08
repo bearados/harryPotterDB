@@ -11,7 +11,7 @@ app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use('/findStudent', require('./getStudent.js'));
-app.use('/deleteStudent', require('delStudent.js'));
+app.use('/deleteStudent', require('./delStudent.js'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {

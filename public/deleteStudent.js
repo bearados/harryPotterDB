@@ -8,9 +8,10 @@ function bindButtons() {
 
 
 function setVals() {
-    var box1 = document.getElementById("fname");
+    /*var box1 = document.getElementById("fname");
     var box2 = document.getElementById("lname");
-/*
-    box1.value = context.FirstName;
-    box2.value = context.LastName;*/
+    var box3 = document.getElementById("idIN");
+    box1.value = student.FirstName;
+    box2.value = student.LastName;
+    box3.value = student.ID;*/
 }

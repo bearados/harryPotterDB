@@ -5,16 +5,30 @@
 </head>
 <body>
     <h1>Delete a student page</h1>
-    <h2>Please enter the name of the student below:</h2>
-    <form>
-        First Name:<br>
-        <input type="text" name="firstname" id="fname" value="{{FirstName}}">
-        <br>
-        Last Name:<br>
-        <input type="text" name="lastname" id="lname" value="{{LastName}}">
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <table align="center">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Grade</th>
+                <th>House</th>
+                <th>Familiar</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="tbl2" class="rows">
+            {{#each stuList}}
+            <tr>
+                <td id="fn">{{FirstName}}</td>
+                <td id="ln">{{LastName}}</td>
+                <td>{{GradeLevel}}</td>
+                <td>{{House}}</td>
+                <td>{{familiar}}</td>
+                <td><a href="/deleteStudent/{{ID}}">Delete</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
     <script src="/deleteStudent.js"></script>
 </body>
 </html>
