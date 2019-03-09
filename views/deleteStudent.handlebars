@@ -2,8 +2,28 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        ul#navBar li {
+            display: inline;
+        }
+
+        li a {
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
+    <div class="menu" style="background-color:black;">
+        <ul id="navBar" style="list-style-type:none; width:100%;">
+            <li style="background-color:black"><a href="/"><font color="red">Home   </font></a></li>
+            <li style="background-color:black"><a href="/addStudent"><font color="red">Add Student</font></a></li>
+            <li style="background-color:black"><a href="/deleteStudent"><font color="white">Delete Student</font></a></li>
+            <li style="background-color:black"><a href="/editStudent"><font color="red">Edit Student</font></a></li>
+            <li style="background-color:black"><a href="/findStudent"><font color="red">Find Student</font></a></li>
+        </ul>
+    </div>
     <h1>Delete a student page</h1>
     <table align="center">
         <thead>
