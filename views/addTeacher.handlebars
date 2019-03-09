@@ -4,27 +4,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Add a Hogwart's student</h1>
+    <h1>Add a teacher</h1>
     <h2>Please enter the information of the student below</h2>
-    <form id="addStud" action="./addStudent" method="post">
+    <form id="addTeach" action="./addTeacher" method="post">
         First name:<br>
         <input type="text" name="firstname">
         <br>
         Last name:<br>
         <input type="text" name="lastname">
         <br>
-        Grade level:<br>
-        <input type="text" name="gradelevel">
-        <br>
-        House:<br>
-              <select name="house">
-                  {{#each house}}
-                  <option value="{{ID}}">{{HouseName}}</option>
-                  {{/each}}
-              </select>
-        <br>
-        Familiar:<br>
-        <input type="text" name="familiar">
+        If they are the head of a house, please enter the house name:<br>
+        <input type="text" name="house">
         <br><br>
         <input type="submit" value="Submit">
     </form>
@@ -33,21 +23,18 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Grade</th>
-                <th>House</th>
-                <th>Familiar</th>
+                <th>Head of House</th>
                 <th>Delete</th>
+                <th>View Classes</th>
             </tr>
         </thead>
         <tbody id="tbl" class="rows">
-            {{#each stuList}}
+            {{#each teacher}}
             <tr>
                 <td id="fn">{{FirstName}}</td>
                 <td id="ln">{{LastName}}</td>
-                <td>{{GradeLevel}}</td>
                 <td>{{HouseName}}</td>
-                <td>{{familiar}}</td>
-                <td><a href="/deleteStudent/{{ID}}">Delete</a></td>
+                <td><a href="/deleteTeacher/{{ID}}">Delete</a></td>
             </tr>
             {{/each}}
         </tbody>
