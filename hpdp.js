@@ -19,6 +19,25 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
+app.get('/students', function (req, res) {
+    res.render('Students');
+});
+
+app.get('/houses', function (req, res) {
+    res.render('Houses');
+});
+
+app.get('/clubs', function (req, res) {
+    res.render('Clubs');
+});
+
+app.get('/teachers', function (req, res) {
+    res.render('Teachers');
+});
+
+app.get('/classes', function (req, res) {
+    res.render('Classes');
+});
 
 app.use(function (req, res) {
     res.status(404);
