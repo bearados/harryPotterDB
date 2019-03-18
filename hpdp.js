@@ -17,6 +17,7 @@ app.use('/addTeacher', require('./addTeacher'));
 app.use('/deleteTeacher', require('./deleteTeacher'));
 app.use('/editStudent', require('./editStudent'));
 app.use('/findTeacher', require('./findTeacher'));
+app.use('/addClub', require('./addClub'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {

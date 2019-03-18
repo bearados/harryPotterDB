@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1>Add a Hogwart's Club</h1>
+    <h2>Please enter the information about the club below</h2>
+    <form id="addClub" action="./addClub" method="post">
+        Club name:<br>
+        <input type="text" name="clubname">
+        <br>
+        Select the faculty adviser for this club:<br>
+                                                 <select name="adviser">
+                                                     {{#each teach}}
+                                                     <option value="{{ID}}">{{FirstName}} {{LastName}}</option>
+                                                     {{/each}}
+                                                 </select>
+        <br>
+        Location:<br>
+        <input type="text" name="location">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Club ID</th>
+                <th>Club Name</th>
+                <th>Adviser</th>
+                <th>Location</th>
+                <th>Delete</th>
+                <th>Edit</th>
+                <th>View Students in this Club</th>
+            </tr>
+        </thead>
+        <tbody id="tbl" class="rows">
+            {{#each clubList}}
+            <tr>
+                <td>{{ClubID}}</td>
+                <td id="fn">{{ClubName}}</td>
+                <td>{{LastName}}</td>
+                <td>{{ClubLocation}}</td>
+                <td><a href="/deleteStudent/{{ID}}">Delete</a></td>
+                <td><a href="/editStudent/{{ID}}">Edit</a></td>
+                <td>student list</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>
