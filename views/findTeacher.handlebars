@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <meta charset="utf-8" />
+</head>
+<body>
+    <center>
+        <h1>Find a teacher page</h1>
+        <h2>Please enter the first and last name of the teacher</h2>
+        <form id="search" action="/findTeacher" method="post">
+            First name:<br>
+            <input type="text" name="firstname" maxlength="100">
+            <br>
+            Last name:<br>
+            <input type="text" name="lastname" maxlength="100">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>House</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tbl" class="rows">
+                {{#each teacher}}
+                <tr>
+                    <td id="fn">{{FirstName}}</td>
+                    <td id="ln">{{LastName}}</td>
+                    <td>{{HouseName}}</td>
+                    <td><a href="/deleteTeacher/{{ID}}">Delete</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>

@@ -1,16 +1,16 @@
 module.exports = function () {
     var express = require('express');
     var router = express.Router();
-    
-    router.get('/', function (req, res, next){
+
+    router.get('/', function (req, res, next) {
         var context = {};
-        res.render('findStudent', context);
+        res.render('findTeacher', context);
     });
 
     router.post('/', function (req, res, next) {
         var context = {};
-        var query1 = "select student.FirstName, student.LastName, house.HouseName, student.GradeLevel, student.familiar from student join house on student.House = house.ID where student.FirstName = ? OR student.LastName = ?";
-        
+        var query1 = "select teacher.FirstName, teacher.LastName, house.HouseName from teacher join house on teacher.HeadofHouse = house.ID where teacher.FirstName = ? OR teacher.LastName = ?";
+
         var inserts = [req.body.firstname, req.body.lastname];
         var mysql = req.app.get('mysql');
         mysql.pool.query(query1, inserts, function (err, result) {
@@ -18,9 +18,9 @@ module.exports = function () {
                 next(err);
                 return;
             }
-            context.student = result;
+            context.teacher = result;
 
-            res.render('findStudent', context);
+            res.render('findTeacher', context);
         });
     });
 
