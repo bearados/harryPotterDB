@@ -8,7 +8,7 @@ module.exports = function () {
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.house = results;
+            context.houselst = results;
             complete();
         });
     }
@@ -26,12 +26,12 @@ module.exports = function () {
     }
 
     function getStudent(id, res, mysql, context, complete) {
-        mysql.pool.query("SELECT student.ID, student.FirstName, student.LastName, house.HouseName, student.GradeLevel, student.familiar FROM student join house on student.House = house.ID where student.ID = ?", [id], function (error, results, fields) {
+        mysql.pool.query("SELECT student.ID, student.FirstName, student.LastName, house.HouseName, student.GradeLevel, student.House, student.familiar FROM student join house on student.House = house.ID where student.ID = ?", [id], function (error, results, fields) {
             if (error) {
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.student = results;
+            context.student = results[0];
             complete();
         });
     }
@@ -40,8 +40,9 @@ module.exports = function () {
         var context = {};
         var mysql = req.app.get('mysql');
         var callbackCount = 0;
-        getHouseList(res, mysql, context, complete);
+        
         getStudList(res, mysql, context, complete);
+        getHouseList(res, mysql, context, complete);
         function complete() {
             callbackCount++;
             if (callbackCount >= 2) {
@@ -59,10 +60,10 @@ module.exports = function () {
         console.log(req.params.id);
         getStudent(req.params.id, res, mysql, context, complete);
         getHouseList(res, mysql, context, complete);
-        
+        getStudList(res, mysql, context, complete)
         function complete() {
             callbackCount++;
-            if (callbackCount >= 2) {
+            if (callbackCount >= 3) {
                 res.render('editStudent', context);
             }
 

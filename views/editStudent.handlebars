@@ -22,39 +22,45 @@
             <li style="background-color:black"><a href="/deleteStudent"><font color="red">Delete Student</font></a></li>
             <li style="background-color:black"><a href="/editStudent"><font color="white">Edit Student</font></a></li>
             <li style="background-color:black"><a href="/findStudent"><font color="red">Find Student</font></a></li>
-        </ul> 
+        </ul>
     </div>
     <br>
     <h1>Edit a student page</h1>
+    
     <form id="editStud" action="./" method="post">
-        {{#each student}}Edit Student:<br>{{/each}}
+        Edit Student:<br>
         ID: <br>
-        <input type="text" name="id" {{#each student}} value="{{ID}}" {{/each}}>
+        <input type="text" name="id" value="{{student.ID}}">
         <br>
         First name:<br>
-        <input type="text" name="firstname" {{#each student}} value="{{FirstName}}{{/each}}">
+        <input type="text" name="firstname" value="{{student.FirstName}}">
         <br>
         Last name:<br>
-        <input type="text" name="lastname" {{#each student}} value="{{LastName}}{{/each}}">
+        <input type="text" name="lastname" value="{{student.LastName}}">
         <br>
         Grade level:<br>
-        <input type="text" name="gradelevel" {{#each student}} value="{{GradeLevel}}{{/each}}">
+        <input type="text" name="gradelevel" value="{{student.GradeLevel}}">
         <br>
         Familiar:<br>
-        <input type="text" name="familiar" {{#each student}} value="{{familiar}}{{/each}}">
+        <input type="text" name="familiar" value="{{student.familiar}}">
         <br>
         House:<br>
-        <select name="house">
-            {{#each house}}
-            <option value="{{ID}}">{{HouseName}}</option>
+        <select name="house" id="houseSelector">
+            {{#each houselst}}
+            <option value="{{ID}}" id="{{ID}}">{{HouseName}}</option>
             {{/each}}
         </select>
         <br><br>
         <input type="submit" value="Submit">
+        <script defer>getStudentHouse({{ student.House }});</script>
     </form>
+ 
+
+
     <table align="center">
         <thead>
             <tr>
+                <th>Student ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Grade</th>
@@ -67,6 +73,7 @@
         <tbody id="tbl2" class="rows">
             {{#each stuList}}
             <tr>
+                <td>{{ID}}</td>
                 <td id="fn">{{FirstName}}</td>
                 <td id="ln">{{LastName}}</td>
                 <td>{{GradeLevel}}</td>
@@ -78,6 +85,5 @@
             {{/each}}
         </tbody>
     </table>
-
 </body>
 </html>
