@@ -1,9 +1,24 @@
 <!doctype html>
 <html>
 <head>
-	<title>Demo Page</title>
+	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <script src="myscripts.js"></script>
+    <title>Hogwarts</title>
 </head>
 <body>
+	<div class="hero-image"></div>
+
+	<!-- Tab links -->
+	<div class="tab">
+	    <button class="tablinks" onclick="openCity(event, 'Students')" id="defaultOpen">Students</button>
+	    <button class="tablinks" onclick="openCity(event, 'Houses')">Houses</button>
+	    <button class="tablinks" onclick="openCity(event, 'Clubs')">Clubs</button>
+	    <button class="tablinks" onclick="openCity(event, 'Teachers')">Teachers</button>
+	    <button class="tablinks" onclick="openCity(event, 'Classes')">Classes</button>
+	</div>
+
 	{{{body}}}
 </body>
 </html>
