@@ -19,17 +19,18 @@ module.exports = function () {
 
 
     router.get('/:id', function (req, res) {
-        var context = {};
+
         var mysql = req.app.get('mysql');
+        console.log(req.params.id);
         var query1 = "delete from teacher where ID = ?";
-        var inserts = [req.params.ID];
+        var inserts = [req.params.id];
         console.log(inserts);
         mysql.pool.query(query1, inserts, function (err, result) {
             if (err) {
                 next(err);
+                console.log(err);
                 return;
             }
-            context.teacher = result;
             res.redirect('/deleteTeacher');
         });
     });
