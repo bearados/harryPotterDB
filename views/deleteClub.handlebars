@@ -5,24 +5,7 @@
 </head>
 <body>
 
-    <h1>Add a Hogwart's Club</h1>
-    <h2>Please enter the information about the club below</h2>
-    <form id="addClub" action="./addClub" method="post">
-        Club name:<br>
-        <input type="text" name="clubname">
-        <br>
-        Select the faculty adviser for this club:<br>
-                                                 <select name="adviser">
-                                                     {{#each teach}}
-                                                     <option value="{{ID}}">{{FirstName}} {{LastName}}</option>
-                                                     {{/each}}
-                                                 </select>
-        <br>
-        Location:<br>
-        <input type="text" name="location">
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <h1>Delete a club page</h1>
     <table align="center">
         <thead>
             <tr>
@@ -34,11 +17,11 @@
                 <th>View Students in this Club</th>
             </tr>
         </thead>
-        <tbody id="tbl" class="rows">
+        <tbody id="tbl2" class="rows">
             {{#each clubList}}
             <tr>
                 <td>{{ClubID}}</td>
-                <td id="fn">{{ClubName}}</td>
+                <td>{{ClubName}}</td>
                 <td>{{LastName}}</td>
                 <td>{{ClubLocation}}</td>
                 <td><a href="/deleteClub/{{ClubID}}">Delete</a></td>
