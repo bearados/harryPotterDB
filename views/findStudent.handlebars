@@ -19,6 +19,7 @@
             <br><br>
             <input type="submit" value="Submit" id="stusub">
         </form>
+        <br><br>
         <table align="center">
             <thead>
                 <tr>
@@ -28,21 +29,36 @@
                     <th>House</th>
                     <th>Familiar</th>
                     <th>Delete</th>
+                    <th>Edit</th>
+                    <th>Add to Club</th>
                 </tr>
             </thead>
             <tbody id="tbl" class="rows">
-                {{#each student}}
                 <tr>
-                    <td id="fn">{{FirstName}}</td>
-                    <td id="ln">{{LastName}}</td>
-                    <td>{{GradeLevel}}</td>
-                    <td>{{HouseName}}</td>
-                    <td>{{familiar}}</td>
-                    <td><a href="/deleteStudent/{{ID}}">Delete</a></td>
+                    <td id="fn">{{student.FirstName}}</td>
+                    <td id="ln">{{student.LastName}}</td>
+                    <td>{{student.GradeLevel}}</td>
+                    <td>{{student.HouseName}}</td>
+                    <td>{{student.familiar}}</td>
+                    <td><a href="/deleteStudent/{{student.ID}}">Delete</a></td>
+                    <td><a href="/editStudent/{{student.ID}}">Edit</a></td>
+                    <td>
+                        <form id="clubStudent" action="/addClub/clubstudent" method="post">
+                            <input type="hidden" value="{{student.ID}}" name="sid"/>
+                            <select name="club">
+                                {{#each clubList}}
+                                <option value="{{ClubID}}">{{ClubName}}</option>
+                                {{/each}}
+                            </select>
+                            
+                            <input type="submit" value="Submit" id="clubsub">
+                        </form>
+                    </td>
                 </tr>
-                {{/each}}
-            </tbody>
+                
+                </tbody>
         </table>
+        
     </center>
 </body>
 </html>

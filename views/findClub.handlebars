@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <meta charset="utf-8" />
+</head>
+<body>
+    <center>
+        <h1>Find a Club</h1>
+        <h2>Please enter name of the club</h2>
+        <form id="search" action="/findClub" method="post">
+            Club name:<br>
+            <input type="text" name="clubname" maxlength="100">
+            <br><br>
+            <input type="submit" value="Submit" id="clubsub">
+        </form>
+        <br><br>
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>Club Name</th>
+                    <th>Adviser</th>
+                    <th>Location</th>
+                    <th>Delete</th>
+                    <th>View Student List</th>
+                </tr>
+            </thead>
+            <tbody id="tbl" class="rows">
+                <tr>
+                    <td id="fn">{{club.ClubName}}</td>
+                    <td id="ln">{{club.LastName}}</td>
+                    <td>{{club.ClubLocation}}</td>
+                    <td><a href="/deleteClub/{{club.ClubID}}">Delete</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </center>
+</body>
+</html>
+

@@ -1,14 +1,6 @@
 module.exports = function () {
     var express = require('express');
     var router = express.Router();
-    function addteach() {
-
-    }
-
-    function addteachhouse() {
-
-    }
-
     
     router.get('/', function (req, res, next) {
         var context = {};

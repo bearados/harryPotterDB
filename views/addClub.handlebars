@@ -31,7 +31,8 @@
                 <th>Adviser</th>
                 <th>Location</th>
                 <th>Delete</th>
-                <th>View Students in this Club</th>
+                <th>See Student Attendees</th>
+                <th>Add Students</th>
             </tr>
         </thead>
         <tbody id="tbl" class="rows">
@@ -42,10 +43,12 @@
                 <td>{{LastName}}</td>
                 <td>{{ClubLocation}}</td>
                 <td><a href="/deleteClub/{{ClubID}}">Delete</a></td>
-                <td>student list</td>
+                <td><a href="/addClub/clubstudent/{{ClubID}}">student list</a></td>
+                <td>Add Student</td>
             </tr>
             {{/each}}
         </tbody>
     </table>
+    <br><br>
 </body>
 </html>
