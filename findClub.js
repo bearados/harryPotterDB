@@ -4,7 +4,7 @@ module.exports = function () {
 
 
     router.post('/', function (req, res, next) {
-        var query1 = "select Extracurricular.ClubName, Extracurricular.ClubLocation, teacher.LastName from Extracurricular join teacher on Extracurricular.ClubAdviser = teacher.ID where Extracurricular.ClubName = ?";
+        var query1 = "select Extracurricular.ClubID, Extracurricular.ClubName, Extracurricular.ClubLocation, teacher.LastName from Extracurricular join teacher on Extracurricular.ClubAdviser = teacher.ID where Extracurricular.ClubName = ?";
         var mysql = req.app.get('mysql');
         var context = {};
         mysql.pool.query(query1, req.body.clubname, function (err, result) {
