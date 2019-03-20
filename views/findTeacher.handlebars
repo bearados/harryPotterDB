@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -22,10 +22,13 @@
         <table align="center">
             <thead>
                 <tr>
+                    {{#if teacher}}
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>House</th>
                     <th>Delete</th>
+                    <th>View Class List</th>
+                    {{/if}}
                 </tr>
             </thead>
             <tbody id="tbl" class="rows">
@@ -35,9 +38,37 @@
                     <td id="ln">{{LastName}}</td>
                     <td>{{HouseName}}</td>
                     <td><a href="/deleteTeacher/{{ID}}">Delete</a></td>
+                    <td><a href="/findTeacher/{{ID}}">View Classes</a></td>
                 </tr>
                 {{/each}}
             </tbody>
+        </table>
+        <br>
+        {{#if classList}}
+        <h4>Class List</h4>
+        {{/if}}
+        <table align="center">
+            <thead>
+                <tr>
+                    {{#if classList}}
+                    <th>Class Name</th>
+                    <th>Location</th>
+                    <th>Text</th>
+                    <th>Delete Class</th>
+                    {{/if}}
+                </tr>
+            </thead>
+            <tbody id="tbl" class="rows">
+                {{#each classList}}
+                <tr>
+                    <td id="fn">{{ClassName}}</td>
+                    <td>{{Location}}</td>
+                    <td>{{TextBook}}</td>
+                    <td><a href="/deleteClass/{{ID}}">Delete</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+
         </table>
     </center>
 </body>
