@@ -5,10 +5,10 @@ module.exports = function () {
 
 
     function getStudList(res, mysql, context, complete) {
-        mysql.pool.query("SELECT student.ID, student.FirstName, student.LastName, house.HouseName, student.GradeLevel, FROM student join house on student.House = house.ID", function (error, results, fields) {
+        mysql.pool.query("SELECT student.ID, student.FirstName, student.LastName, house.HouseName, student.GradeLevel FROM student join house on student.House = house.ID", function (error, results, fields) {
             if (error) {
-                next(error);
-                return;
+                res.write(JSON.stringify(error));
+                res.end();
             }
             context.stuList = results;
             complete();
@@ -26,7 +26,7 @@ module.exports = function () {
         });
     }
 
-    router.get('/', function (req, res, next) {
+    router.get('/', function (req, res) {
         var context = {};
         var mysql = req.app.get('mysql');
         var callbackCount = 0;
@@ -35,20 +35,20 @@ module.exports = function () {
         function complete() {
             callbackCount++;
             if (callbackCount >= 2) {
-                res.render('addStudentClub', context);
+                res.render('addStudentsClub', context);
             }
 
         }
 
     });
 
-    router.post('/', function (req, res, next) {
+    /*router.post('/', function (req, res, next) {
         var context = {};
-        var query1 = "Insert into student (FirstName, LastName, House, GradeLevel, familiar) values (?, ?, ?, ?, ?)";
+        var query1 = "Insert into club_enrollment (SID, ClubID) values (?, ?)";
         console.log(req.body.house);
         var houseStr = JSON.stringify(req.body.house);
         console.log(houseStr);
-        var inserts = [req.body.firstname, req.body.lastname, req.body.house, req.body.gradelevel, req.body.familiar];
+        var inserts = [req.body.sid, req.body.club];
         var mysql = req.app.get('mysql');
         mysql.pool.query(query1, inserts, function (err, result) {
             if (err) {
@@ -56,9 +56,9 @@ module.exports = function () {
                 return;
             }
             context.student = result;
-            res.redirect('/addstudent');
+            res.redirect('/addStudentsClub');
         });
-    });
+    });*/
 
 
     return router;

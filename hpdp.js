@@ -24,6 +24,7 @@ app.use('/clubStudents', require('./clubStudents'));
 app.use('/houseInfo', require('./houseInfo'));
 app.use('/deleteClass', require('./deleteClass'));
 app.use('/addClass', require('./addClass'));
+app.use('/addStudentsClub', require('./addStudentsClub'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
