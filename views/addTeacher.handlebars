@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Add a teacher</h1>
-    <h2>Please enter the information of the teacher below</h2>
+    <h2>Please enter the information of the student below</h2>
     <form id="addTeach" action="./addTeacher" method="post">
         First name:<br>
         <input type="text" name="firstname">
@@ -13,8 +13,14 @@
         Last name:<br>
         <input type="text" name="lastname">
         <br>
-        If they are the head of a house, please enter the house name:<br>
-        <input type="text" name="house">
+        If they are the head of a house, please enter the house name:
+        <br>
+        <select name="house">
+            <option value="NULL">Not Head of House</option>
+            {{#each house}}
+            <option value="{{ID}}">{{HouseName}}</option>
+            {{/each}}
+        </select>
         <br><br>
         <input type="submit" value="Submit">
     </form>
@@ -35,6 +41,7 @@
                 <td id="ln">{{LastName}}</td>
                 <td>{{HouseName}}</td>
                 <td><a href="/deleteTeacher/{{ID}}">Delete</a></td>
+                <td><a href="/findTeacher/{{ID}}">View Classes</a></td>
             </tr>
             {{/each}}
         </tbody>
