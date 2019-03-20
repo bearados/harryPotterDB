@@ -7,7 +7,7 @@
 
     <h1>Add a Hogwart's Class</h1>
     <h2>Please enter the information of the class below</h2>
-    <form id="addClass" action="./addClass" method="post">
+    <form id="addClass" action="/addClass" method="post">
         Class name:<br>
         <input type="text" name="classname">
         <br>
@@ -44,7 +44,7 @@
                 <td id="fn">{{ClassName}}</td>
                 <td id="ln">{{LastName}}</td>
                 <td>{{Location}}</td>
-                <td>{{Text Book}}</td>
+                <td>{{TextBook}}</td>
                 <td><a href="/deleteClass/{{ID}}">Delete</a></td>
             </tr>
             {{/each}}

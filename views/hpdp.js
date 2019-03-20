@@ -19,7 +19,7 @@ app.use('/editStudent', require('./editStudent'));
 app.use('/findTeacher', require('./findTeacher'));
 app.use('/addClub', require('./addClub'));
 app.use('/deleteClub', require('./deleteClub'));
-app.use('/findClub', require('./addClub');
+app.use('/findClub', require('./addClub'));
 
 app.use(express.static('public'));
 
