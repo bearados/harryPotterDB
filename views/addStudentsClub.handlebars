@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <meta charset="utf-8" />
+</head>
+<body>
+    <center>
+        <br><br>
+        <table align="center">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Grade</th>
+                    <th>House</th>
+                    <th>Familiar</th>
+                    <th>Add to Club</th>
+                </tr>
+            </thead>
+            <tbody id="tbl" class="rows">
+                <tr>
+                    {{#each stuList}}
+                    <td id="fn">{{FirstName}}</td>
+                    <td id="ln">{{LastName}}</td>
+                    <td>{{GradeLevel}}</td>
+                    <td>{{HouseName}}</td>
+                    <td>{{familiar}}</td>
+                    <td>
+                        <form id="clubStudent" action="/clubStudents" method="post">
+                            <input type="hidden" value="{{ID}}" name="sid" />
+                            <select name="club">
+                                {{#each /clubList}}
+                                <option value="{{ClubID}}">{{ClubName}}</option>
+                                {{/each}}
+                            </select>
+
+                            <input type="submit" value="Submit" id="clubsub">
+                        </form>
+                    </td>
+                    {{/each}}
+                </tr>
+
+            </tbody>
+        </table>
+
+    </center>
+</body>
+</html>
