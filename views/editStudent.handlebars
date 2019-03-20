@@ -9,9 +9,7 @@
     
     <form id="editStud" action="./" method="post">
         Edit Student:<br>
-        ID: <br>
-        <input type="text" name="id" value="{{student.ID}}">
-        <br>
+        <input type="hidden" name="id" value="{{student.ID}}">
         First name:<br>
         <input type="text" name="firstname" value="{{student.FirstName}}">
         <br>
@@ -25,7 +23,9 @@
         <input type="text" name="familiar" value="{{student.familiar}}">
         <br>
         House:<br>
+        <input type="hidden" value="{{student.House}}" id="studHouse" />
         <select name="house" id="houseSelector">
+
             {{#each houselst}}
             <option value="{{ID}}" id="{{ID}}">{{HouseName}}</option>
             {{/each}}
@@ -65,6 +65,6 @@
             {{/each}}
         </tbody>
     </table>
-    <script defer>getStudentHouse({{ student.House }});</script>
+    <script src="/getStudentHouse.js"></script>
 </body>
 </html>

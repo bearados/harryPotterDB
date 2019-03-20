@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1>Add a Hogwart's Class</h1>
+    <h2>Please enter the information of the class below</h2>
+    <form id="addClass" action="./addClass" method="post">
+        Class name:<br>
+        <input type="text" name="classname">
+        <br>
+        Location:<br>
+        <input type="text" name="location">
+        <br>
+        TextBook:<br>
+        <input type="text" name="textbook">
+        <br>
+        Teacher:<br>
+        <select name="teacher">
+            {{#each teach}}
+            <option value="{{ID}}">{{LastName}}</option>
+            {{/each}}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <table align="center">
+        <thead>
+            <tr>
+                {{#if classList}}
+                <th>Class Name</th>
+                <th>Teacher</th>
+                <th>Location</th>
+                <th>Text Book</th>
+                <th>Delete</th>
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody id="tbl" class="rows">
+            {{#each classList}}
+            <tr>
+                <td id="fn">{{ClassName}}</td>
+                <td id="ln">{{LastName}}</td>
+                <td>{{Location}}</td>
+                <td>{{Text Book}}</td>
+                <td><a href="/deleteClass/{{ID}}">Delete</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>
