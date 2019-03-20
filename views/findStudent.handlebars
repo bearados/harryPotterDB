@@ -43,7 +43,7 @@
                     <td><a href="/deleteStudent/{{student.ID}}">Delete</a></td>
                     <td><a href="/editStudent/{{student.ID}}">Edit</a></td>
                     <td>
-                        <form id="clubStudent" action="/addClub/clubstudent" method="post">
+                        <form id="clubStudent" action="/clubStudents" method="post">
                             <input type="hidden" value="{{student.ID}}" name="sid"/>
                             <select name="club">
                                 {{#each clubList}}

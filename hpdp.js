@@ -20,6 +20,8 @@ app.use('/findTeacher', require('./findTeacher'));
 app.use('/addClub', require('./addClub'));
 app.use('/deleteClub', require('./deleteClub'));
 app.use('/findClub', require('./findClub'));
+app.use('/clubStudents', require('./clubStudents'));
+app.use('/houseInfo', require('./houseInfo'));
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
